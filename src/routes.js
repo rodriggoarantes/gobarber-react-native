@@ -1,18 +1,18 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import Main from './pages/Main';
+import SignIn from './pages/SignIn';
 
 const AppNavigator = createStackNavigator(
   {
-    Main,
+    SignIn,
   },
   {
     headerLayoutPreset: 'center',
     headerBackTitleVisible: false,
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#00838f',
+        backgroundColor: '#7159c1',
       },
       headerTintColor: '#FFF',
     },
