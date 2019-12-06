@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image } from 'react-native';
-
 import logo from '~/assets/logo.png';
 
 import Background from '~/components/Background';
@@ -14,12 +13,18 @@ import {
   SignLinkText,
 } from './styles';
 
-export default function SignIn({ navigation }) {
+export default function SignUp({ navigation }) {
   return (
     <Background>
       <Container>
         <Image source={logo} />
         <Form>
+          <FormInput
+            icon="person-outline"
+            placeholder="Digite o seu nome"
+            autoCorrect={false}
+            autoCapitalize="none"
+          />
           <FormInput
             icon="mail-outline"
             placeholder="Digite o seu e-mail"
@@ -34,10 +39,10 @@ export default function SignIn({ navigation }) {
           />
         </Form>
 
-        <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
+        <SubmitButton onPress={() => {}}>Enviar</SubmitButton>
 
-        <SignLink onPress={() => navigation.navigate('SignUp')}>
-          <SignLinkText>Criar conta</SignLinkText>
+        <SignLink onPress={() => navigation.navigate('SignIn')}>
+          <SignLinkText>Voltar</SignLinkText>
         </SignLink>
       </Container>
     </Background>
