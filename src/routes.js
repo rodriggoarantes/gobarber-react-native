@@ -1,8 +1,9 @@
-import { createAppContainer } from 'react-navigation';
-import { createSwitchNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import Dashboard from './pages/Dashboard';
 
 export default (isSigned = false) =>
   createAppContainer(
@@ -12,9 +13,12 @@ export default (isSigned = false) =>
           SignIn,
           SignUp,
         }),
+        App: createBottomTabNavigator({
+          Dashboard,
+        }),
       },
       {
-        initialRouteName: 'Sign',
+        initialRouteName: isSigned ? 'App' : 'Sign',
       }
     )
   );
