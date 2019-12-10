@@ -1,8 +1,29 @@
 import React from 'react';
-import { View } from 'react-native';
+import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import Background from '~/components/Background';
 
-// import { Container } from './styles';
+import { Container, Title } from './styles';
 
 export default function Dashboard() {
-  return <View />;
+  return (
+    <Background>
+      <Container>
+        <Title>Agendamentos</Title>
+      </Container>
+    </Background>
+  );
 }
+
+const EventTabIcon = ({ tintColor }) => (
+  <Icon name="event" size={20} color={tintColor} />
+);
+
+EventTabIcon.propTypes = {
+  tintColor: PropTypes.string.isRequired,
+};
+
+Dashboard.navigationOptions = {
+  tabBarLabel: 'Agendamentos',
+  tabBarIcon: EventTabIcon,
+};
