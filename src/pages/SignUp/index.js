@@ -69,11 +69,11 @@ export default function SignUp({ navigation }) {
             value={password}
             onChangeText={setPassword}
           />
-        </Form>
 
-        <SubmitButton loading={loading} onPress={handleSubmit}>
-          Enviar
-        </SubmitButton>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
+            Enviar
+          </SubmitButton>
+        </Form>
 
         <SignLink onPress={() => navigation.navigate('SignIn')}>
           <SignLinkText>Já tenho conta</SignLinkText>
