@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Background from '~/components/Background';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
+import { signOut } from '~/store/modules/auth/actions';
 
 import {
   Container,
@@ -14,6 +15,7 @@ import {
   SubmitButton,
   Form,
   FormInput,
+  LogoutButton,
 } from './styles';
 
 export default function Profile() {
@@ -44,6 +46,10 @@ export default function Profile() {
         confirmpass: confirmPassword,
       })
     );
+  };
+
+  const handleLogout = () => {
+    dispatch(signOut());
   };
 
   useEffect(() => {
@@ -119,6 +125,10 @@ export default function Profile() {
           <SubmitButton loading={loading} onPress={handleSubmit}>
             Enviar
           </SubmitButton>
+
+          <LogoutButton loading={loading} onPress={handleLogout}>
+            Sair do GoBarber
+          </LogoutButton>
         </Form>
       </Container>
     </Background>
