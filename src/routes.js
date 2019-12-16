@@ -35,6 +35,9 @@ export default (isSigned = false) =>
                   defaultNavigationOptions: {
                     headerTransparent: true,
                     headerTintColor: '#FFF',
+                    headerLeftContainerStyle: {
+                      marginLeft: 20,
+                    },
                   },
                 }
               ),

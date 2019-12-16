@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { HeaderBackButton } from 'react-navigation-stack';
 import PropTypes from 'prop-types';
+
+import { TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { API_HOST } from 'react-native-dotenv';
 import api from '~/services/api';
@@ -61,14 +63,19 @@ SelectProvider.propTypes = {
   }).isRequired,
 };
 
+SelectProvider.navigationOptions = () => ({
+  title: 'Selecione o prestador',
+});
+
 SelectProvider.navigationOptions = ({ navigation }) => ({
   title: 'Selecione o prestador',
   headerLeft: () => (
-    <HeaderBackButton
-      tintColor="#FFF"
+    <TouchableOpacity
       onPress={() => {
         navigation.navigate('Dashboard');
       }}
-    />
+    >
+      <Icon name="chevron-left" size={20} color="#FFF" />
+    </TouchableOpacity>
   ),
 });
