@@ -1,4 +1,5 @@
-import styled from 'styled-components/native';
+import { Platform } from 'react-native';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
   margin: 60px 0 30px;
@@ -21,7 +22,14 @@ export const DateText = styled.Text`
 `;
 
 export const Picker = styled.View`
-  background: #fff;
-  padding: 15px 30px;
-  margin-top: 30px;
+  ${Platform.select({
+    ios: css`
+      background: #fff;
+      padding: 15px 30px;
+      margin-top: 30px;
+    `,
+    android: css`
+      margin-top: 0px;
+    `,
+  })};
 `;
