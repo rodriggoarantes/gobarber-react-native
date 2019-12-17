@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { formatRelative, parseISO } from 'date-fns';
@@ -37,6 +37,15 @@ export default function Confirm({ navigation }) {
     return apiAvatarUrl;
   }, [provider]);
 
+  const handleAddAppointment = async () => {
+    await api.post('appointments', {
+      provider_id: provider.id,
+      date: time,
+    });
+
+    navigation.navigate('Dashboard');
+  };
+
   return (
     <Background>
       <Container>
@@ -44,7 +53,9 @@ export default function Confirm({ navigation }) {
         <Name>{provider.name}</Name>
         <Time>{timeFormatted}</Time>
 
-        <SubmitButton onPress={() => {}}>Confirmar agendamento</SubmitButton>
+        <SubmitButton onPress={handleAddAppointment}>
+          Confirmar agendamento
+        </SubmitButton>
       </Container>
     </Background>
   );

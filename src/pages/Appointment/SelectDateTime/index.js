@@ -18,8 +18,7 @@ export default function SelectDateTime({ navigation }) {
   const provider = navigation.getParam('provider');
 
   const handleSelectHour = time => {
-    const timeWithoutTZ = time.replace('-02:00', '');
-    navigation.navigate('Confirm', { provider, time: timeWithoutTZ });
+    navigation.navigate('Confirm', { provider, time });
   };
 
   useEffect(() => {
